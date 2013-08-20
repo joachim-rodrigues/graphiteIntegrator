@@ -1,0 +1,34 @@
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form">
+
+  <j:set var="helpURL" value="/plugin/graphiteIntegrator/help/config" />
+  
+  <f:entry title="${%graphite_server_title}" help="${helpURL}/choose-graphite-server.html">
+    <select class="setting-input" name="publisherBinding.selectedIp" >
+      <j:forEach var="currentServer" items="${descriptor.servers}">
+        <f:option selected="${currentServer.ip==instance.selectedIp}" value="${currentServer.ip}" >${currentServer.description}</f:option>
+      </j:forEach>
+    </select>
+  </f:entry>
+  
+  <f:entry title="${%choose_metric_title_global}"  >
+    <f:repeatable var="addedMetric" items="${instance.metrics}" add="${%metric_add_new}">
+      <table width="100%"> 
+        <f:entry title="${%choose_metric_title}" help="${helpURL}/choose-metric.html">
+           <select class="setting-input" name="metricBinding.name" >
+             <j:forEach var="available" items="${descriptor.metrics}">
+               <f:option selected="${available.name==addedMetric.name}"  value="${available.name}" >${available.name}</f:option>
+             </j:forEach>
+           </select>
+         </f:entry>
+        <f:entry title="${%choose_graphite_queue_name}" help="${helpURL}/choose-graphite-queue-name.html">
+          <input class="setting-input" name="metricBinding.queueName"  type="text" value="${addedMetric.queueName}" />
+        </f:entry>
+        <f:entry title="${%delete_current_metric}">
+          <div align="right">
+            <f:repeatableDeleteButton value="${%delete_current_metric_button}"/>
+          </div>
+        </f:entry>
+      </table>
+    </f:repeatable>
+  </f:entry>
+</j:jelly>
