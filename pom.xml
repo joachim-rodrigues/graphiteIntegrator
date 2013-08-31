@@ -21,11 +21,14 @@
 		</developer>
 	</developers>
   
-	<scm>
-		<connection>scm:git:ssh://github.com/jenkinsci/graphite-plugin.git</connection>
-		<developerConnection>scm:git:ssh://git@github.com/jenkinsci/graphite-plugin.git</developerConnection>
-		<url>https://github.com/jenkinsci/graphite-plugin</url>
-	</scm>
+  <scm>
+	<connection>scm:git:git@github.com:joachim-rodrigues/graphiteIntegrator.git</connection>
+	<url>scm:git:git@github.com:joachim-rodrigues/graphiteIntegrator.git</url>
+	<developerConnection>scm:git:git@github.com:joachim-rodrigues/graphiteIntegrator.git</developerConnection>
+  </scm>
+
+  
+
   
 	<!-- get every artifact through repo.jenkins-ci.org, which proxies all the 
 		artifacts that we need -->
@@ -50,11 +53,17 @@
 		</plugins>
 	</build>
 	<repositories>
-		<repository>
-			<id>repo.jenkins-ci.org</id>
-			<url>http://repo.jenkins-ci.org/public/</url>
-		</repository>
-	</repositories>
+          <repository>
+            <id>repo.jenkins-ci.org</id>
+            <url>http://repo.jenkins-ci.org/public/</url>
+          </repository>
+   	</repositories>
+        <pluginRepositories>
+        <pluginRepository>
+            <id>repo.jenkins-ci.org</id>
+            <url>http://repo.jenkins-ci.org/public/</url>
+        </pluginRepository>
+        </pluginRepositories>
 
 	<dependencies>
 		<dependency>
@@ -73,14 +82,7 @@
 		</repository>
 	</distributionManagement>
 
-	<pluginRepositories>
-		<pluginRepository>
-			<id>repo.jenkins-ci.org</id>
-			<url>http://repo.jenkins-ci.org/public/</url>
-		</pluginRepository>
-	</pluginRepositories>
-
-	<properties>
+		<properties>
 		<!-- explicitly specifying the latest version here because one we get from 
 			the parent POM tends to lag behind a bit -->
 		<maven-hpi-plugin.version>1.95</maven-hpi-plugin.version>
