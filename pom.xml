@@ -9,7 +9,7 @@
 
 	<groupId>org.jenkins-ci.plugins</groupId>
 	<artifactId>graphiteIntegrator</artifactId>
-	<version>1.0</version>
+	<version>1.0-SNAPSHOT</version>
 	<packaging>hpi</packaging>
 	<url>https://wiki.jenkins-ci.org/display/JENKINS/Graphite-plugin</url>
 	
@@ -21,12 +21,13 @@
 		</developer>
 	</developers>
   
+  
   <scm>
-	<connection>scm:git:git@github.com:joachim-rodrigues/graphiteIntegrator.git</connection>
-	<url>scm:git:git@github.com:joachim-rodrigues/graphiteIntegrator.git</url>
-	<developerConnection>scm:git:git@github.com:joachim-rodrigues/graphiteIntegrator.git</developerConnection>
+    <connection>scm:git:https://github.com/joachim-rodrigues/graphiteIntegrator.git</connection>
+    <developerConnection>scm:git:git@github.com:joachim-rodrigues/graphiteIntegrator.git</developerConnection>
+    <url>https://github.com/joachim-rodrigues/graphiteIntegrator</url>
+    <tag>HEAD</tag>
   </scm>
-
   
 
   
@@ -52,18 +53,7 @@
 			</plugin>
 		</plugins>
 	</build>
-	<repositories>
-          <repository>
-            <id>repo.jenkins-ci.org</id>
-            <url>http://repo.jenkins-ci.org/public/</url>
-          </repository>
-   	</repositories>
-        <pluginRepositories>
-        <pluginRepository>
-            <id>repo.jenkins-ci.org</id>
-            <url>http://repo.jenkins-ci.org/public/</url>
-        </pluginRepository>
-        </pluginRepositories>
+	
 
 	<dependencies>
 		<dependency>
@@ -75,12 +65,7 @@
 
 	</dependencies>
 
-	<distributionManagement>
-		<repository>
-		  <id>maven.jenkins-ci.org</id>
-		  <url>http://maven.jenkins-ci.org:8081/content/repositories/releases/</url>
-		</repository>
-	</distributionManagement>
+	
 
 		<properties>
 		<!-- explicitly specifying the latest version here because one we get from 
