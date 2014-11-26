@@ -41,7 +41,9 @@ public class GraphiteLogger {
     	Socket conn = new Socket(graphiteHost, Integer.parseInt(graphitePort));
     			
         DataOutputStream dos = new DataOutputStream(conn.getOutputStream());
-        String data = queue + " " + metric + "\n";
+        String data = queue + " " + metric + " " + System.currentTimeMillis() +"\n";
+
+        logger.println("sending " + data + " to graphite server.");
         dos.writeBytes(data);
         
     }
